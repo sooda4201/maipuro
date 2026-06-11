@@ -1,26 +1,89 @@
-
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <title マイプロジェクト紹介></title>
-    <link rel: "stylesheet", href: "style.css">
- </head>
-  <body>
-    <h1> マイプロジェクト紹介サイト</h1>
-    <form-area>
-      <input name{type: "text", placeholder: "名前"}>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マイプロジェクト紹介サイト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-      <input project-name{type: "text", placeholder: "プロジェクト名"}>
+<body>
+  <header>
+    <h1>マイプロジェクト紹介サイト</h1>
+  </header>
 
-      <textarea content{placeholder: "内容"}></textarea>
+  <main>
 
-      <button add-btn 投稿></button>
-    </form-area>
-    <h2> プロジェクト一覧</h2>
-    project-list
+    <!-- ログイン -->
+    <section class="login-section">
+      <h2>ログイン</h2>
 
-    <h2> 閲覧履歴 </h2>
-    #history-list
+      <input
+        type="text"
+        id="username"
+        placeholder="ユーザー名"
+      >
 
-    %script{src: "script.js"}
-  </body
+      <input
+        type="password"
+        id="password"
+        placeholder="パスワード"
+      >
+
+      <button id="login-btn">
+        ログイン
+      </button>
+
+      <div id="user-info"></div>
+    </section>
+
+    <!-- プロジェクト投稿 -->
+    <section class="post-section">
+      <h2>プロジェクト投稿</h2>
+
+      <input
+        type="text"
+        id="project-name"
+        placeholder="プロジェクト名"
+      >
+
+      <textarea
+        id="content"
+        placeholder="プロジェクト内容"
+      ></textarea>
+
+      <button id="add-btn">
+        投稿する
+      </button>
+    </section>
+
+    <!-- プロジェクト検索 -->
+    <section class="search-section">
+      <h2>プロジェクト検索</h2>
+
+      <input
+        type="text"
+        id="search-box"
+        placeholder="プロジェクト名を検索"
+      >
+    </section>
+
+    <!-- プロジェクト一覧 -->
+    <section class="projects-section">
+      <h2>プロジェクト一覧</h2>
+
+      <div id="project-list"></div>
+    </section>
+
+    <!-- 閲覧履歴 -->
+    <section class="history-section">
+      <h2>閲覧履歴</h2>
+
+      <div id="history-list"></div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
