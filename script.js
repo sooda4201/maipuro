@@ -40,10 +40,6 @@ document.getElementById('search-box').addEventListener('input', e => {
 
 document.getElementById('add-btn').addEventListener('click', () => {
   const currentUser = localStorage.getItem('currentUser');
-  if (!currentUser) {
-    alert('ログインしてください');
-    return;
-  }
 
   projects.push({
     name: currentUser,
