@@ -7,15 +7,15 @@
  </head>
   <body>
     <h1> マイプロジェクト紹介サイト</h1>
-    .form-area
-      %input#name{type: "text", placeholder: "名前"}
+    <form-area>
+      <input name{type: "text", placeholder: "名前"}>
 
-      %input#project-name{type: "text", placeholder: "プロジェクト名"}
+      <input project-name{type: "text", placeholder: "プロジェクト名"}>
 
-      %textarea#content{placeholder: "内容"}
+      <textarea content{placeholder: "内容"}></textarea>
 
-      %button#add-btn 投稿
-
+      <button add-btn 投稿></button>
+    </form-area>
     <h2> プロジェクト一覧</h2>
     project-list
 
