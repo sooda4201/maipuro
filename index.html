@@ -2,65 +2,29 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>マイプロジェクト紹介サイト</title>
+  <title>プロジェクト一覧</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header>
-    <h1>マイプロジェクト紹介サイト</h1>
-  </header>
 
-  <main>
+  <h1>プロジェクト一覧</h1>
 
-    <!-- プロジェクト投稿 -->
-    <section class="post-section">
-      <h2>プロジェクト投稿</h2>
+  <a href="post.html">プロジェクトを投稿する</a>
 
-      <input
-        type="text"
-        id="project-name"
-        placeholder="プロジェクト名"
-      >
+  <h2>検索</h2>
 
-      <textarea
-        id="content"
-        placeholder="プロジェクト内容"
-      ></textarea>
+  <input
+    type="text"
+    id="search-box"
+    placeholder="検索"
+  >
 
-      <button id="add-btn">
-        投稿する
-      </button>
-    </section>
+  <div id="project-list"></div>
 
-    <!-- プロジェクト検索 -->
-    <section class="search-section">
-      <h2>プロジェクト検索</h2>
-
-      <input
-        type="text"
-        id="search-box"
-        placeholder="プロジェクト名を検索"
-      >
-    </section>
-
-    <!-- プロジェクト一覧 -->
-    <section class="projects-section">
-      <h2>プロジェクト一覧</h2>
-
-      <div id="project-list"></div>
-    </section>
-
-    <!-- 閲覧履歴 -->
-    <section class="history-section">
-      <h2>閲覧履歴</h2>
-
-      <div id="history-list"></div>
-    </section>
-
-  </main>
+  <h2>閲覧履歴</h2>
+  <div id="history-list"></div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
