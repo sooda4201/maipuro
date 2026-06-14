@@ -1,37 +1,9 @@
-const users = [{ username: 'admin', password: '1234' }];
 const projects = [];
 let searchKeyword = '';
 
 const projectList = document.getElementById('project-list');
 const historyList = document.getElementById('history-list');
 const userInfo = document.getElementById('user-info');
-
-document.getElementById('login-btn').addEventListener('click', () => {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-
-  const user = users.find(u => u.username === username && u.password === password);
-
-  if (user) {
-    localStorage.setItem('currentUser', username);
-    showUser();
-  } else {
-    alert('ユーザー名またはパスワードが違います');
-  }
-});
-
-function showUser() {
-  const currentUser = localStorage.getItem('currentUser');
-  if (currentUser) {
-    userInfo.innerHTML = `<p>ログイン中: ${currentUser}</p><button id="logout-btn">ログアウト</button>`;
-    document.getElementById('logout-btn').onclick = logout;
-  }
-}
-
-function logout() {
-  localStorage.removeItem('currentUser');
-  userInfo.innerHTML = '';
-}
 
 document.getElementById('search-box').addEventListener('input', e => {
   searchKeyword = e.target.value.toLowerCase();
