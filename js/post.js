@@ -2,6 +2,7 @@ const form = document.getElementById("projectForm");
 const nameInput = document.getElementById("name");
 const titleInput = document.getElementById("title");
 const descriptionInput = document.getElementById("description");
+const passwordInput = document.getElementById("password");
 const submitButton = form.querySelector("button[type='submit']");
 const deleteButton = document.getElementById("deleteButton");
 const params = new URLSearchParams(window.location.search);
@@ -59,13 +60,21 @@ form.addEventListener("submit", (e) => {
   if (editingId) {
     const project = projects.find(item => String(item.id) === String(editingId));
 
-    if (project) {
-      project.name = nameInput.value;
-      project.title = titleInput.value;
-      project.description = descriptionInput.value;
-      saveProjects(projects);
-      alert("更新完了");
+    if (!project) {
+      alert("投稿が見つかりません");
+      return;
     }
+
+    if (project.password !== passwordInput.value) {
+      alert("パスワードが違います");
+      return;
+    }
+
+    project.name = nameInput.value;
+    project.title = titleInput.value;
+    project.description = descriptionInput.value;
+    saveProjects(projects);
+    alert("更新完了");
   } else {
     const project = {
       id: Date.now(),
@@ -73,6 +82,7 @@ form.addEventListener("submit", (e) => {
       name: nameInput.value,
       title: titleInput.value,
       description: descriptionInput.value,
+      password: passwordInput.value,
       createdAt: new Date().toLocaleDateString()
     };
 
