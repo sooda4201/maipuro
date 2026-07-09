@@ -7,6 +7,10 @@ const search =
 let projects =
   JSON.parse(localStorage.getItem("projects")) || [];
 
+function editProject(id) {
+  location.href = `post.html?id=${id}`;
+}
+
 function render(list) {
 
   projectList.innerHTML = "";

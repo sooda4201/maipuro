@@ -1,28 +1,59 @@
 const form = document.getElementById("projectForm");
+const titleInput = document.getElementById("title");
+const descriptionInput = document.getElementById("description");
+const submitButton = form.querySelector("button[type='submit']");
+const params = new URLSearchParams(window.location.search);
+const editId = params.get("id");
+
+function getProjects() {
+  return JSON.parse(localStorage.getItem("projects")) || [];
+}
+
+function saveProjects(projects) {
+  localStorage.setItem("projects", JSON.stringify(projects));
+}
+
+if (editId) {
+  const projects = getProjects();
+  const project = projects.find(item => String(item.id) === editId);
+
+  if (project) {
+    titleInput.value = project.title;
+    descriptionInput.value = project.description;
+    submitButton.textContent = "更新";
+    form.dataset.editingId = project.id;
+  }
+}
 
 form.addEventListener("submit", (e) => {
 
   e.preventDefault();
 
-  const projects =
-    JSON.parse(localStorage.getItem("projects")) || [];
+  const projects = getProjects();
+  const editingId = form.dataset.editingId;
 
-  const project = {
-    id: Date.now(),
-    owner: localStorage.getItem("userId"),
-    title: document.getElementById("title").value,
-    description: document.getElementById("description").value,
-    createdAt: new Date().toLocaleDateString()
-  };
+  if (editingId) {
+    const project = projects.find(item => String(item.id) === String(editingId));
 
-  projects.push(project);
+    if (project) {
+      project.title = titleInput.value;
+      project.description = descriptionInput.value;
+      saveProjects(projects);
+      alert("更新完了");
+    }
+  } else {
+    const project = {
+      id: Date.now(),
+      owner: localStorage.getItem("userId"),
+      title: titleInput.value,
+      description: descriptionInput.value,
+      createdAt: new Date().toLocaleDateString()
+    };
 
-  localStorage.setItem(
-    "projects",
-    JSON.stringify(projects)
-  );
-
-  alert("投稿完了");
+    projects.push(project);
+    saveProjects(projects);
+    alert("投稿完了");
+  }
 
   location.href = "view.html";
 });
