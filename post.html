@@ -3,30 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <title>プロジェクト投稿</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <h1>プロジェクト投稿</h1>
 
-  <a href="index.html">一覧を見る</a>
+  <nav>
+    <a href="view.html">プロジェクト一覧</a>
+  </nav>
 
-  <input
-    type="text"
-    id="project-name"
-    placeholder="プロジェクト名"
-  >
+  <form id="projectForm">
 
-  <textarea
-    id="content"
-    placeholder="プロジェクト内容"
-  ></textarea>
+    <label>
+      プロジェクト名
+    </label>
 
-  <button id="add-btn">
-    投稿する
-  </button>
+    <input
+      type="text"
+      id="title"
+      required
+    >
 
-  <script src="script.js"></script>
+    <label>
+      内容
+    </label>
+
+    <textarea
+      id="description"
+      rows="10"
+      required
+    ></textarea>
+
+    <button type="submit">
+      投稿
+    </button>
+
+  </form>
+
+  <script src="js/post.js"></script>
 
 </body>
 </html>
