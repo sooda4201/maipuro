@@ -3,6 +3,7 @@ const nameInput = document.getElementById("name");
 const titleInput = document.getElementById("title");
 const descriptionInput = document.getElementById("description");
 const submitButton = form.querySelector("button[type='submit']");
+const deleteButton = document.getElementById("deleteButton");
 const params = new URLSearchParams(window.location.search);
 const editId = params.get("id");
 
@@ -23,9 +24,30 @@ if (editId) {
     titleInput.value = project.title;
     descriptionInput.value = project.description;
     submitButton.textContent = "更新";
+    deleteButton.hidden = false;
     form.dataset.editingId = project.id;
   }
 }
+
+deleteButton.addEventListener("click", () => {
+  const editingId = form.dataset.editingId;
+
+  if (!editingId) {
+    return;
+  }
+
+  const confirmed = window.confirm("この投稿を削除しますか？");
+
+  if (!confirmed) {
+    return;
+  }
+
+  const projects = getProjects();
+  const updatedProjects = projects.filter(item => String(item.id) !== String(editingId));
+  saveProjects(updatedProjects);
+  alert("削除しました");
+  location.href = "view.html";
+});
 
 form.addEventListener("submit", (e) => {
 
