@@ -27,6 +27,7 @@ function render(list) {
 
     card.innerHTML = `
       <h2>${project.title}</h2>
+      <p>名前: ${project.name || "未入力"}</p>
       <p>${project.description}</p>
       <small>${project.createdAt}</small>
       ${

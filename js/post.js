@@ -1,4 +1,5 @@
 const form = document.getElementById("projectForm");
+const nameInput = document.getElementById("name");
 const titleInput = document.getElementById("title");
 const descriptionInput = document.getElementById("description");
 const submitButton = form.querySelector("button[type='submit']");
@@ -18,6 +19,7 @@ if (editId) {
   const project = projects.find(item => String(item.id) === editId);
 
   if (project) {
+    nameInput.value = project.name || "";
     titleInput.value = project.title;
     descriptionInput.value = project.description;
     submitButton.textContent = "更新";
@@ -36,6 +38,7 @@ form.addEventListener("submit", (e) => {
     const project = projects.find(item => String(item.id) === String(editingId));
 
     if (project) {
+      project.name = nameInput.value;
       project.title = titleInput.value;
       project.description = descriptionInput.value;
       saveProjects(projects);
@@ -45,6 +48,7 @@ form.addEventListener("submit", (e) => {
     const project = {
       id: Date.now(),
       owner: localStorage.getItem("userId"),
+      name: nameInput.value,
       title: titleInput.value,
       description: descriptionInput.value,
       createdAt: new Date().toLocaleDateString()
