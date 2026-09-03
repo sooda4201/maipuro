@@ -28,7 +28,9 @@ function render(list) {
     card.innerHTML = `
       <h2>${project.title}</h2>
       <p>名前: ${project.name || "未入力"}</p>
+      <p>きっかけ: ${project.kikkake}</p>
       <p>内容：${project.description}</p>
+      <p>学び: ${project.manabi}</p>
       <small>${project.createdAt}</small>
       ${
         project.owner === currentUser
