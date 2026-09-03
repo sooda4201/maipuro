@@ -1,7 +1,9 @@
 const form = document.getElementById("projectForm");
 const nameInput = document.getElementById("name");
 const titleInput = document.getElementById("title");
+const kikkakeInput = document.getElementById("kikkake");
 const descriptionInput = document.getElementById("description");
+const manabiInput = document.getElementById("manabi")
 const passwordInput = document.getElementById("password");
 const submitButton = form.querySelector("button[type='submit']");
 const deleteButton = document.getElementById("deleteButton");
@@ -23,7 +25,9 @@ if (editId) {
   if (project) {
     nameInput.value = project.name || "";
     titleInput.value = project.title;
+    kikkakeInput.value = project.kikkake;
     descriptionInput.value = project.description;
+    manabiInput.value = project.manabi;
     submitButton.textContent = "更新";
     deleteButton.hidden = false;
     form.dataset.editingId = project.id;
@@ -72,7 +76,9 @@ form.addEventListener("submit", (e) => {
 
     project.name = nameInput.value;
     project.title = titleInput.value;
+    project.kikkake = kikkakeInput.value;
     project.description = descriptionInput.value;
+    project.manabi = manabi.value; 
     saveProjects(projects);
     alert("更新完了");
   } else {
