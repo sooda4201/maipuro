@@ -87,7 +87,9 @@ form.addEventListener("submit", (e) => {
       owner: localStorage.getItem("userId"),
       name: nameInput.value,
       title: titleInput.value,
+      kikkake: kikkakeInput.value,
       description: descriptionInput.value,
+      manabi: manabiInput.value,
       password: passwordInput.value,
       createdAt: new Date().toLocaleDateString()
     };
