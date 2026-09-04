@@ -26,7 +26,7 @@ function render(list) {
       localStorage.getItem("userId");
 
     card.innerHTML = `
-      <h2>・:${project.title}</h2>
+      <h2>タイトル:${project.title}</h2>
       <p>名前: ${project.name || "未入力"}</p>
       <p>きっかけ: ${project.kikkake}</p>
       <p>内容：${project.description}</p>
