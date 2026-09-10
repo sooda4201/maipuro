@@ -28,8 +28,11 @@ function render(list) {
     card.innerHTML = `
       <h2>タイトル:${project.title}</h2>
       <p>名前: ${project.name || "未入力"}</p>
+      <hr>
       <p>きっかけ: ${project.kikkake}</p>
+      <hr>
       <p>内容：${project.description}</p>
+      <hr>
       <p>学び: ${project.manabi}</p>
       <small>${project.createdAt}</small>
       ${
