@@ -8,9 +8,9 @@ body{
 
 .card{
   background-color: white;
-  border:2px solid #ddd;
+  border:1px solid #ddd;
   padding:15px;
-  margin:15px 0;
+  margin:15px 1;
   border-radius:10px;
 }
 
