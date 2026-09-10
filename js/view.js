@@ -26,14 +26,14 @@ function render(list) {
       localStorage.getItem("userId");
 
     card.innerHTML = `
-      <h2>タイトル:${project.title}</h2>
-      <p>名前: ${project.name || "未入力"}</p>
+      タイトル：<h2>${project.title}</h2>
+      名前：<p>${project.name || "未入力"}</p>
       <hr>
-      <p>きっかけ: ${project.kikkake}</p>
+      きっかけ：<p> ${project.kikkake}</p>
       <hr>
-      <p>内容：${project.description}</p>
+      内容：<p>${project.description}</p>
       <hr>
-      <p>学び: ${project.manabi}</p>
+      学び：<p> ${project.manabi}</p>
       <small>${project.createdAt}</small>
       ${
         project.owner === currentUser
